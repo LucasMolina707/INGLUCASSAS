@@ -17,24 +17,20 @@ body {
     line-height: 1.6;
 }
 
-/* --- ESTILOS DE NAVEGACIÓN REUTILIZABLE --- */
-header {
+/* 1. ESTILOS DEL ENCABEZADO DE PRESENTACIÓN (Fijo arriba) */
+.site-presentation {
     background-color: var(--color-dark);
     color: var(--color-white);
-    padding: 15px 5%; /* Ajustado para que el logo y el menú queden bien */
-    display: flex; /* Flexbox para layout horizontal en PC */
-    justify-content: space-between;
-    align-items: center;
-    position: sticky; /* Opcional: para que el menú se quede fijo arriba */
-    top: 0;
-    z-index: 1000;
+    padding: 20px 5%;
+    text-align: center;
 }
 
-/* LOGO CONTAINER - Reutilizado del anterior */
+/* LOGO CONTAINER */
 .logo-container {
     display: flex;
     align-items: center;
-    margin: 0;
+    justify-content: center;
+    margin-bottom: 5px;
 }
 
 .header-logo {
@@ -48,6 +44,24 @@ header {
     color: var(--color-secondary);
 }
 
+.site-presentation h1 {
+    font-size: 1.2em;
+    font-weight: 400; 
+    margin: 0;
+    color: var(--color-secondary);
+}
+
+
+/* 2. ESTILOS DE LA BARRA DE NAVEGACIÓN DINÁMICA */
+#navbar-placeholder {
+    background-color: var(--color-dark); /* Color de fondo igual al header */
+    padding: 0 5%;
+    display: flex;
+    justify-content: flex-end; /* Alinea el menú a la derecha en PC */
+    align-items: center;
+    min-height: 50px; /* Altura mínima para el menú */
+}
+
 /* MENÚ HAMBURGUESA (Botón de despliegue) */
 .menu-toggle {
     display: none; /* Oculto por defecto en PC */
@@ -59,35 +73,36 @@ header {
 }
 
 /* MENÚ PRINCIPAL (Horizontal en PC) */
-.main-nav ul {
+.main-nav-list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex; /* Horizontal */
 }
 
-.main-nav ul li a {
+.main-nav-list li a {
     color: var(--color-light);
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 15px 15px; /* Más padding vertical para hacerlo una barra */
     display: block;
     transition: background-color 0.3s;
     font-weight: 500;
 }
 
-.main-nav ul li a:hover {
+.main-nav-list li a:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--color-secondary);
 }
 /* --- FIN ESTILOS DE NAVEGACIÓN --- */
 
 
-/* Contenido Principal y Secciones (manteniendo los estilos del paso anterior) */
+/* Contenido Principal (Mantener) */
 main {
     padding: 0 5%;
     max-width: 1200px;
     margin: 0 auto;
 }
+/* ... Todos los estilos de .hero, .cta-button, .trust-points, .services, etc., siguen aquí ... */
 
 /* Sección de Llamada a la Acción (Hero) */
 .hero {
@@ -272,39 +287,43 @@ footer a {
 
 /* --- MEDIA QUERY (COMPORTAMIENTO VERTICAL EN MÓVIL) --- */
 @media (max-width: 768px) {
+    
+    /* Configuración de la BARRA DE NAVEGACIÓN en móvil */
+    #navbar-placeholder {
+        display: flex;
+        flex-wrap: wrap; /* Permite que los elementos se apilen */
+        justify-content: space-between; /* Mantiene botón a la derecha y el menú abajo */
+        padding: 0 5%;
+    }
+    
     /* Muestra el botón hamburguesa */
     .menu-toggle {
         display: block;
-    }
-    
-    header {
-        /* Fuerza a que el logo y el botón hamburguesa queden en la misma línea */
-        justify-content: space-between;
+        padding: 10px 0;
+        margin: 10px 0;
     }
     
     /* Oculta el menú principal por defecto en móvil */
-    .main-nav {
+    .main-nav-list {
         display: none;
         width: 100%;
         order: 3; /* Asegura que se coloque debajo */
         text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 5px;
     }
 
     /* Clase activa para desplegar el menú */
-    .main-nav.active {
+    .main-nav-list.active {
         display: block;
-    }
-
-    .main-nav ul {
         flex-direction: column; /* Vertical */
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .main-nav ul li {
+    .main-nav-list li {
         width: 100%;
     }
 
-    .main-nav ul li a {
+    .main-nav-list li a {
         padding: 12px 15px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
