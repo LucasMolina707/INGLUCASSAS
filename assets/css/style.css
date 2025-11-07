@@ -1,6 +1,7 @@
 /* Variables de Color para la identidad de INGLUCAS.SAS */
 :root {
-    --color-primary: #4a148c; /* Púrpura (Profesionalismo, Base) */
+    /* Color Primario redefinido a Gris Oscuro (Profesionalismo y Base) */
+    --color-primary: #343a40; 
     --color-secondary: #00bcd4; /* Azul/Cyan de tu logo (Innovación, CTA) */
     --color-dark: #343a40; /* Gris oscuro (Texto) */
     --color-light: #f8f9fa; /* Gris muy claro (Fondo) */
@@ -34,7 +35,7 @@ header {
 }
 
 .header-logo {
-    height: 40px; /* Tamaño del logo */
+    height: 40px;
     margin-right: 10px;
 }
 
@@ -46,9 +47,9 @@ header {
 
 header h1 {
     font-size: 1.2em;
-    font-weight: 400; /* Ligeramente más legible */
+    font-weight: 400; 
     margin: 0;
-    color: var(--color-secondary); /* ¡OPTIMIZACIÓN! El eslogan en color de innovación */
+    color: var(--color-secondary); /* Slogan en color de innovación */
 }
 
 /* Contenido Principal */
@@ -69,7 +70,7 @@ main {
 }
 
 .hero h2 {
-    color: var(--color-primary); /* Púrpura */
+    color: var(--color-primary); /* Gris oscuro - Menos énfasis que el púrpura anterior */
     font-size: 1.8em;
     margin-bottom: 20px;
 }
@@ -84,7 +85,7 @@ main {
 .cta-button {
     display: inline-block;
     background-color: var(--color-secondary); 
-    color: var(--color-white); /* ¡OPTIMIZACIÓN! Texto blanco para mejor contraste */
+    color: var(--color-white);
     padding: 15px 30px;
     text-decoration: none;
     border-radius: 50px;
@@ -102,7 +103,7 @@ main {
 }
 
 .secondary-cta {
-    background-color: var(--color-primary); /* Púrpura */
+    background-color: var(--color-dark); /* CTA secundario en Gris Oscuro (más discreto) */
     color: var(--color-white);
     font-size: 0.9em;
     padding: 10px 20px;
@@ -117,7 +118,7 @@ main {
 }
 
 .trust-points h3 {
-    color: var(--color-primary);
+    color: var(--color-dark); /* Gris oscuro */
     margin-bottom: 25px;
     font-size: 1.5em;
 }
@@ -139,7 +140,7 @@ main {
     font-weight: bold;
     color: var(--color-dark);
     text-align: left; 
-    border-left: 5px solid var(--color-secondary); /* Barra de énfasis */
+    border-left: 5px solid var(--color-secondary); /* ¡Enfatizamos el color Azul/Cyan! */
     transition: transform 0.2s;
 }
 
@@ -149,7 +150,7 @@ main {
 }
 
 .point-item i {
-    color: var(--color-primary); /* Iconos en Púrpura */
+    color: var(--color-secondary); /* Iconos en Azul/Cyan */
     margin-right: 10px;
     font-size: 1.2em;
 }
@@ -162,7 +163,7 @@ main {
 }
 
 .services h3 {
-    color: var(--color-primary);
+    color: var(--color-dark);
     margin-bottom: 30px;
 }
 
@@ -199,7 +200,7 @@ main {
     color: var(--color-dark);
 }
 
-/* Pitch de AppSheet */
+/* Pitch Secundario */
 .appsheet-pitch {
     background-color: #e9ecef;
     padding: 40px;
