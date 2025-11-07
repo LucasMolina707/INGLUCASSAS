@@ -1,0 +1,13 @@
+/inglucas-landing-page  <-- Nombre de tu Repositorio en GitHub
+├── index.html         <-- La página de inicio principal (HTML y JS)
+├── assets/            <-- CARPETA PRINCIPAL DE RECURSOS
+│   ├── css/           <-- Estilos de la web (CSS)
+│   │   └── style.css  <-- Hoja de estilos principal
+│   ├── img/           <-- Todas las imágenes (Logos, iconos, banners)
+│   │   ├── branding/  <-- Imágenes de marca (Logos, Favicon)
+│   │   │   ├── logoinglucas.png 
+│   │   │   └── favicon.png  <-- (Versión pequeña de tu logo)
+│   │   └── services/  <-- Imágenes específicas de servicios (Si las añades después)
+│   └── js/            <-- Scripts de JavaScript (Si el sitio crece y necesitas más lógica)
+│       └── main.js    <-- (Opcional, si sacas el JS de index.html)
+└── forms/             <-- Opcional: Aquí podrías poner un archivo HTML solo con el formulario incrustado
