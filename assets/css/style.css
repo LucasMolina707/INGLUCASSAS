@@ -1,10 +1,9 @@
 /* Variables de Color para la identidad de INGLUCAS.SAS */
 :root {
-    /* Color Primario redefinido a Gris Oscuro (Profesionalismo y Base) */
-    --color-primary: #343a40; 
+    --color-primary: #343a40; /* Gris oscuro (Profesionalismo y Base) */
     --color-secondary: #00bcd4; /* Azul/Cyan de tu logo (Innovación, CTA) */
-    --color-dark: #343a40; /* Gris oscuro (Texto) */
-    --color-light: #f8f9fa; /* Gris muy claro (Fondo) */
+    --color-dark: #343a40; 
+    --color-light: #f8f9fa; 
     --color-white: #ffffff;
 }
 
@@ -18,41 +17,72 @@ body {
     line-height: 1.6;
 }
 
-/* Encabezado */
+/* --- ESTILOS DE NAVEGACIÓN REUTILIZABLE --- */
 header {
     background-color: var(--color-dark);
     color: var(--color-white);
-    padding: 20px 5%;
-    text-align: center;
+    padding: 15px 5%; /* Ajustado para que el logo y el menú queden bien */
+    display: flex; /* Flexbox para layout horizontal en PC */
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; /* Opcional: para que el menú se quede fijo arriba */
+    top: 0;
+    z-index: 1000;
 }
 
-/* LOGO CONTAINER */
+/* LOGO CONTAINER - Reutilizado del anterior */
 .logo-container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 5px;
+    margin: 0;
 }
 
 .header-logo {
-    height: 40px;
+    height: 40px; 
     margin-right: 10px;
 }
 
 .logo-container span {
     font-size: 1.8em;
     font-weight: bold;
-    color: var(--color-secondary); /* Color Azul/Cyan */
+    color: var(--color-secondary);
 }
 
-header h1 {
-    font-size: 1.2em;
-    font-weight: 400; 
+/* MENÚ HAMBURGUESA (Botón de despliegue) */
+.menu-toggle {
+    display: none; /* Oculto por defecto en PC */
+    background: transparent;
+    border: none;
+    color: var(--color-white);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* MENÚ PRINCIPAL (Horizontal en PC) */
+.main-nav ul {
+    list-style: none;
+    padding: 0;
     margin: 0;
-    color: var(--color-secondary); /* Slogan en color de innovación */
+    display: flex; /* Horizontal */
 }
 
-/* Contenido Principal */
+.main-nav ul li a {
+    color: var(--color-light);
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.main-nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-secondary);
+}
+/* --- FIN ESTILOS DE NAVEGACIÓN --- */
+
+
+/* Contenido Principal y Secciones (manteniendo los estilos del paso anterior) */
 main {
     padding: 0 5%;
     max-width: 1200px;
@@ -70,7 +100,7 @@ main {
 }
 
 .hero h2 {
-    color: var(--color-primary); /* Gris oscuro - Menos énfasis que el púrpura anterior */
+    color: var(--color-dark); 
     font-size: 1.8em;
     margin-bottom: 20px;
 }
@@ -103,13 +133,13 @@ main {
 }
 
 .secondary-cta {
-    background-color: var(--color-dark); /* CTA secundario en Gris Oscuro (más discreto) */
+    background-color: var(--color-dark); 
     color: var(--color-white);
     font-size: 0.9em;
     padding: 10px 20px;
 }
 
-/* NUEVOS ESTILOS: Puntos de Confianza */
+/* Puntos de Confianza */
 .trust-points {
     padding: 30px 5%;
     max-width: 1200px;
@@ -118,7 +148,7 @@ main {
 }
 
 .trust-points h3 {
-    color: var(--color-dark); /* Gris oscuro */
+    color: var(--color-dark); 
     margin-bottom: 25px;
     font-size: 1.5em;
 }
@@ -140,7 +170,7 @@ main {
     font-weight: bold;
     color: var(--color-dark);
     text-align: left; 
-    border-left: 5px solid var(--color-secondary); /* ¡Enfatizamos el color Azul/Cyan! */
+    border-left: 5px solid var(--color-secondary); 
     transition: transform 0.2s;
 }
 
@@ -150,7 +180,7 @@ main {
 }
 
 .point-item i {
-    color: var(--color-secondary); /* Iconos en Azul/Cyan */
+    color: var(--color-secondary); 
     margin-right: 10px;
     font-size: 1.2em;
 }
@@ -239,28 +269,62 @@ footer a {
 .social-icon.twitter:hover { color: #1da1f2; }
 .social-icon.linkedin:hover { color: #0077b5; }
 
-/* Media Query para responsividad en móviles */
+
+/* --- MEDIA QUERY (COMPORTAMIENTO VERTICAL EN MÓVIL) --- */
 @media (max-width: 768px) {
+    /* Muestra el botón hamburguesa */
+    .menu-toggle {
+        display: block;
+    }
+    
+    header {
+        /* Fuerza a que el logo y el botón hamburguesa queden en la misma línea */
+        justify-content: space-between;
+    }
+    
+    /* Oculta el menú principal por defecto en móvil */
+    .main-nav {
+        display: none;
+        width: 100%;
+        order: 3; /* Asegura que se coloque debajo */
+        text-align: center;
+    }
+
+    /* Clase activa para desplegar el menú */
+    .main-nav.active {
+        display: block;
+    }
+
+    .main-nav ul {
+        flex-direction: column; /* Vertical */
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .main-nav ul li {
+        width: 100%;
+    }
+
+    .main-nav ul li a {
+        padding: 12px 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    /* Otros ajustes de diseño existentes en móvil */
     .services-grid {
         flex-direction: column;
     }
-
     .service-card {
         flex-basis: 100%;
         margin-bottom: 10px;
     }
-    
-    /* Ajuste para Trust Points en móvil */
     .points-grid {
         flex-direction: column;
         align-items: stretch;
     }
-    
     .point-item {
         margin: 5px 0;
         text-align: left;
     }
-
     .hero h2 {
         font-size: 1.4em;
     }

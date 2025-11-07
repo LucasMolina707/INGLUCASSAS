@@ -18,13 +18,9 @@
 </head>
 <body>
 
-    <header>
-        <div class="logo-container">
-            <img src="assets/img/branding/logoinglucas.png" alt="Logo INGLUCAS Soluciones Integrales en Tecnología y Seguridad" class="header-logo">
-            <span>INGLUCAS.SAS</span>
-        </div>
-        <h1>Soluciones Integrales en Tecnología y Seguridad</h1>
-    </header>
+    <header id="navbar-placeholder">
+    <div class="loading">Cargando menú...</div>
+</header>
     
     <main>
         <section class="hero">
@@ -121,6 +117,44 @@
             return false;
         };
     </script>
+    // Función para cargar el menú desde un archivo externo
+function loadMenu() {
+    const placeholder = document.getElementById('navbar-placeholder');
+    if (!placeholder) return;
+
+    // Usamos Fetch API para obtener el contenido del menú
+    fetch('assets/includes/menu.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al cargar el menú: ' + response.statusText);
+            }
+            return response.text();
+        })
+        .then(html => {
+            // Reemplaza el contenido del header con el menú cargado
+            placeholder.innerHTML = html;
+            
+            // Lógica para el botón de despliegue (Hamburguesa)
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', () => {
+                    mainNav.classList.toggle('active');
+                });
+            }
+        })
+        .catch(error => {
+            console.error(error);
+            placeholder.innerHTML = '<p class="error">No se pudo cargar la navegación.</p>';
+        });
+}
+
+// Llama a la función de carga al iniciar
+loadMenu();
+
+// ... (Aquí sigue el script de compartir que ya tenías)
+// const pageUrl = window.location.href; ...
 
 </body>
 </html>
